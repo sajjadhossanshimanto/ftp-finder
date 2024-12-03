@@ -4,7 +4,17 @@ import json
 
 
 url="https://sites.google.com/view/bdixftpserverlist/live-tv-servers"
-# url="https://sites.google.com/view/bdixftpserverlist/media-ftp-servers"
+blocklist = "blocklist_tv-server.txt"
+
+url="https://sites.google.com/view/bdixftpserverlist/media-ftp-servers"
+blocklist = "blocklist_media.txt"
+
+
+with open(blocklist) as f:
+    # block = f.read()
+    block = set(map(lambda x:x[:-1], f.readlines()))
+# print("http://www.bnet-bd.com" in block)
+
 
 def save_web_html(url, filename):
   r = requests.get(url)
@@ -20,7 +30,7 @@ def check_server(url):
 
     #print(r.status_code)
     if r.status_code==200:
-        if "facebook" in url: return 
+        if "facebook" in url or url in block: return 
         
         # data saving part
         fs.write(f"\n{url}")
