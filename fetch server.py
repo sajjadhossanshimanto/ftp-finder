@@ -11,7 +11,6 @@ def save_web_html(url, filename):
   with open(filename, "w", encoding="utf-8") as f:
     f.write(r.text)
 
-l=[]
 fs = open("active_server.txt", "a", encoding="utf-8")
 def check_server(url):
     try:
@@ -27,7 +26,6 @@ def check_server(url):
         # data saving part
         fs.write(f"\n{url}")
         fs.flush()
-        l.append(url)
         print()# to fix raw line
 
 file = "ftp_server.html"
