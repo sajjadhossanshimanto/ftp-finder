@@ -17,8 +17,7 @@ def check_server(url):
         r = requests.get(url, timeout=3)
     except requests.exceptions.Timeout:
         return 
-    except requests.exceptions.ConnectionError:
-        return
+
     #print(r.status_code)
     if r.status_code==200:
         if "facebook" in url: return 
