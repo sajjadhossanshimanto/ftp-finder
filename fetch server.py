@@ -36,10 +36,11 @@ with open(file, encoding="utf-8") as f:
 pattern = '<div class="NsaAfc"><p>(.+?)</p>'
 c=0
 for link in re.finditer(pattern, html):
-    p=link.group(1)
-    check_server(p)
     c+=1
     print(".    ", c, p, end="\r")
+    p=link.group(1)
+    check_server(p)
+    
     # break
 
 f.close()
