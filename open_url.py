@@ -20,6 +20,9 @@ for i in l:
     # add filters
     if "facebook" in i: continue 
     
-    wb.open_new_tab(i)
-    input(f".    {i} -- press any key .....")
+    wb.open(i)
+    inp = input(f".    {i} -- press any key .....")
+    if inp==".":
+        with open("filtered.txt", "a") as f:
+            f.write(i+"\n")
 
