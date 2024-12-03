@@ -12,7 +12,7 @@ with open(f) as f:
     l = f.readlines()
 
 
-skip_line = 20
+skip_line = 0# TODO: very careful
 c = 0
 for i in l:
     c+=1
